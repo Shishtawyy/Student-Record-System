@@ -7,29 +7,37 @@
 
 #endif //STUDENT_RECORD_SYSTEM_PROGRAM_H
 
+int user_login(int id,char* pass);
+
+int admin_login(int pass);
+
+
+
+
 
 //Shishtawy
-char get_index();
+int get_index(int id);
 
 void view_all_records();
 
-void remove_student(get_index());
+void remove_student(int index);
+
 
 
 //Aya
 int add_student(char* name,char* password,int degree,int id,int age,char gender);
 
-void edit_grade(get_index(),char degree);
+void edit_grade(int index,int degree);
 
-void view_std_record(get_index());
+void view_std_record(int index);
 
 
 
 //Raghad
-char check_availability();
+int check_availability();
 
-void edit_pass(get_index());
+void edit_pass(int index);
 
-void edit_name(get_index());
+void edit_name(int index);
 
 
