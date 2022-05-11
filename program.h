@@ -20,24 +20,24 @@ int get_index(int id);
 
 void view_all_records();
 
-void remove_student(int index);
+void remove_student(int id);
 
 
 
 //Aya
 int add_student(char* name,char* password,int degree,int id,int age,char gender);
 
-void edit_grade(int index,int degree);
+void edit_grade(int id,int degree);
 
-void view_std_record(int index);
+void view_std_record(int id);
 
 
 
 //Raghad
 int check_availability();
 
-void edit_pass(int index);
+void edit_pass(int id);
 
-void edit_name(int index);
+void edit_name(int id);
 
 
