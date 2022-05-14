@@ -1,14 +1,23 @@
-//
-// Created by Shishtawy on 5/8/2022.
-//
+
+
+/**/
+/* Author        : Mohamed Shishtawy                         */
+/* File          : Interface.c                               */
+/* Date          : 5/8/2022                                  */
+/* Version       : V01                                       */
+/* GitHub        : https://github.com/Shishtawyy             */
+/**/
+
+
 //interface of the program with all the choices & navigation
 //
 //there will be 2 functions (admin_mode) & ( user_mode  ) which will have the functions called inside them
 //
-/*خطة سريعة للكود هيمشي ازاي*/
-//#include "stdio.h"
+
 #include "interface.h"
 #include "program.h"
+
+/* This function initializes the system & allows the User to choose between modes */
 
 void system_init() {
     set_admin_password();
@@ -25,7 +34,7 @@ void system_init() {
             char *admin__pass = (char *) malloc(strlen(entered_pass) + 1);
             strcpy(admin__pass, entered_pass);
             if (admin_login(admin__pass)) {
-                printf("Welcome to the Admin Mode.");
+                printf("Welcome to the Admin Mode.\n");
                 admin_mode();
             } else {
                 exit(1);
@@ -41,7 +50,7 @@ void system_init() {
             strcpy(user__pass, entered_pass);
             int temp = user_login(user_entered_id, user__pass);
             if (temp != -1) {
-                printf("Welcome to the User Mode.");
+                printf("Welcome to the User Mode.\n");
                 user_mode(temp);
             } else {
                 exit(1);
@@ -55,11 +64,12 @@ void system_init() {
     }
 }
 
+/* This Function gets the user into the system as an admin*/
 
 void admin_mode() {
     while (1) {
         int option_choice = 0;
-        printf("Please enter the number of what you want to do:\n");
+        printf("--------------------------------------------------------------------\n");
         printf("1 - Add a student to the system.\n");
         printf("2 - Remove a student from the system.\n");
         printf("3 - Edit the grade of a student.\n");
@@ -69,7 +79,8 @@ void admin_mode() {
         printf("7 - Edit the password of the admin.\n");
         printf("8 - Return to mode selection.\n");
         printf("9 - Exit\n");
-
+        printf("--------------------------------------------------------------------\n");
+        printf("Please enter the number of what you want to do:\n");
         scanf("%d", &option_choice);
 
         if (option_choice == 1) {
@@ -93,13 +104,14 @@ void admin_mode() {
                 add_student(name, password, degree, id, age, gender);
 
             } else {
-                printf("Sorry , There's no room for a new student in our system.");
+                printf("Sorry , There's no room for a new student in our system.\n");
             }
         } else if (option_choice == 2) {
             int entered_id;
             printf("Please enter the id of the student you wish to remove his data from the system:\n");
             scanf("%d", &entered_id);
             remove_student(entered_id);
+            printf("Student removed successfully\n");
         } else if (option_choice == 3) {
             int entered_id, entered_degree;
             printf("Please enter the id of the student you want to Edit his grades:\n");
@@ -112,11 +124,21 @@ void admin_mode() {
                 printf("Sorry an error has occurred\n");
             }
         } else if (option_choice == 4) {
-            view_all_records();
+            printf("--------------------------------------------------------------------------------\n");
+            printf("---------------------------Students record Table--------------------------------\n");
+            printf("--------------------------------------------------------------------------------\n");
+            if (view_all_records()) {
+
+            } else {
+                printf("There are no students in the system.\n\n");
+            }
         } else if (option_choice == 5) {
             int entered_id;
             printf("Please enter the id of the student you wish to show his records:\n");
             scanf("%d", &entered_id);
+            printf("--------------------------------------------------------------------------------\n");
+            printf("----------------------------Student record Table--------------------------------\n");
+            printf("--------------------------------------------------------------------------------\n\n");
             view_std_record(entered_id);
         } else if (option_choice == 6) {
             int entered_id;
@@ -126,7 +148,7 @@ void admin_mode() {
             printf("Please enter the new name of the student you wish to edit his name:\n");
             scanf("%s", new_name);
             edit_name(entered_id, new_name);
-            printf("Name changed successfully");
+            printf("Name changed successfully\n");
         } else if (option_choice == 7) {
             char new_pass[30];
             printf("Please enter the new password of the admin:\n");
@@ -146,15 +168,20 @@ void admin_mode() {
     }
 }
 
+/* This Function gets the user into the system as an User*/
+
 void user_mode(int index) {
     while (1) {
         int option_choice = 0;
-        printf("Please enter the number of what you want to do:\n");
+
+        printf("--------------------------------------------------------------------\n");
         printf("1 - Show your record.\n");
         printf("2 - Edit your name.\n");
         printf("3 - Edit your password.\n");
         printf("4 - Return to mode selection.\n");
         printf("5 - Exit.\n");
+        printf("--------------------------------------------------------------------\n");
+        printf("Please enter the number of what you want to do:\n");
         scanf("%d", &option_choice);
 
         if (option_choice == 1) {
