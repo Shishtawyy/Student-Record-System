@@ -1,0 +1,5 @@
+# ninja log v5
+30	163	6742447376764092	CMakeFiles/Student_Record_System.dir/main.c.obj	e2ded9120f7ed59d
+0	220	6742447377292683	CMakeFiles/Student_Record_System.dir/interface.c.obj	208b30804605d182
+27	225	6742447377382424	CMakeFiles/Student_Record_System.dir/program.c.obj	42672178d246da88
+225	422	6742447379317259	Student_Record_System.exe	6f2a580151092c0a

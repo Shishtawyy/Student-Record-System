@@ -149,6 +149,7 @@ void view_all_records() {
 void remove_student(int id) {
     int temp_id = get_index(id);
     if (temp_id != -1) {
+        arr_counter[temp_id]=0;
         free_dynamic(arr[temp_id].name);
         arr[temp_id].id = 0;
         arr[temp_id].degree = 0;
