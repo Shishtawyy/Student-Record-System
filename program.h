@@ -7,13 +7,23 @@
 
 #endif //STUDENT_RECORD_SYSTEM_PROGRAM_H
 
-int user_login(int id,char* pass);
+#include "data.h"
 
-int admin_login(int pass);
+char *set_admin_password();
 
+int admin_login(char *entered_pass);
 
+int user_login(int id, char *pass);
 
+void free_dynamic(void **ptr);
 
+int edit_admin_pass(char *newpass);
+
+void show_user_record(int id);
+
+int edit_user_name(int index, char *newname);
+
+int edit_user_pass(int index, char *newpass);
 
 //Shishtawy
 int get_index(int id);
@@ -23,21 +33,18 @@ void view_all_records();
 void remove_student(int id);
 
 
-
 //Aya
-int add_student(char* name,char* password,int degree,int id,int age,char gender);
+int add_student(char *name, char *password, int degree, int id, int age, int gender);
 
-void edit_grade(int id,int degree);
+int edit_grade(int degree, int id);
 
 void view_std_record(int id);
-
 
 
 //Raghad
 int check_availability();
 
-void edit_pass(int id);
+//int edit_student_pass(int id,char * newpass);
 
-void edit_name(int id);
-
+int edit_name(int id, char *newname);
 

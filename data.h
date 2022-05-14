@@ -6,11 +6,16 @@
 #define STUDENT_RECORD_SYSTEM_DATA_H
 
 #endif //STUDENT_RECORD_SYSTEM_DATA_H
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
 struct student {
-    char* std_name;
-    char* std_password;
-    int std_degree;
-    int std_id;
-    int std_age;
-    char std_gender;
+    char *name;
+    char *password;
+    int degree;
+    int id;
+    int age;
+    char gender;
 };

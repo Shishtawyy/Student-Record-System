@@ -12,6 +12,6 @@ void system_init();
 
 void admin_mode();
 
-void user_mode();
+void user_mode(int index);
 
 

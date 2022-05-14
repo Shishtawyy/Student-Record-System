@@ -1,7 +1,6 @@
-#include <stdio.h>
 #include "interface.h"
-int main()
-{
 
+int main() {
+    system_init();
     return 0;
 }
